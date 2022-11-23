@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class postingApp extends Model
 {
     use HasFactory;
+    protected $fillable = ['userName','email','password'];
 }
