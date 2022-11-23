@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostingAppController;
+use App\Http\Controllers\Home;
+use App\Models\postingApp;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',[PostingAppController::class,'forDashboard']);
+Route::get('/login',[PostingAppController::class,'forLoginIn']);
+Route::get('/sign-up',[PostingAppController::class,'forSignIn'])->name('forSignIn');
+Route::post('/sign-up',[Home::class,'signupUser'])->name('signupUser');
 
-Route::get('/', function () {
-    return view('dashboard');
-});
-Route::get('/login', function () {
-    return view('loginPage');
-});
 Route::get('/app',function(){
     return view('layout.app');
 });
+;
